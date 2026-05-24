@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Partner Group | Best Property Advisory</title>
+    <link rel="shortcut icon" href="images/logo.jpeg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css  " />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#EFECE6',
+                        creamDark: '#DFDCD6',
+                        gold: '#D4AF37',
+                        goldHover: '#B5952F',
+                        maroon: '#4C0910',
+                        maroonLight: '#6E101A',
+                        maroonDark: '#2D0509'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    transitionTimingFunction: {
+                        'custom-ease': 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Micro-interactions */
+        body {
+            background-color: #EFECE6;
+            /* Cream */
+            color: #4C0910;
+            /* Maroon */
+            overflow-x: hidden;
+        }
+
+        /* Lenis Smooth Scroll Recommended CSS */
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        /* Image Overlays - Updated to Maroon (76, 9, 16) */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(76, 9, 16, 0.8), rgba(76, 9, 16, 0.1));
+        }
+
+        /* Link Hover Micro-interaction */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #D4AF37;
+            /* Gold */
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Button Micro-interactions */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        /* Menu Overlay Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .menu-open {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Reveal classes for GSAP */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-gold selection:text-maroon">
+
+    <!-- <div class="bg-gold text-maroon font-semibold text-xs tracking-wider uppercase py-2 px-4 text-center z-50 relative">
+        <span>Just Launched: Exclusive Estate Listings - <a href="#"
+                class="underline hover:text-white transition-colors">Explore Now</a></span>
+    </div> -->
+
+    <header class="fixed w-full top-0 left-0 z-40 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-maroon backdrop-blur-md transition-opacity duration-300 opacity-0" id="nav-bg">
+        </div>
+        <div class="container px-5 px-6 py-2 relative z-10 flex justify-between items-center mx-auto">
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="images/logo.png" alt="Apex Partner Group Logo"
+                    class="w-16 h-16 object-contain transform transition-transform scale-[1.4] lg:scale-[1.3]" />
+
+                <!-- Google Font add in head -->
+                <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap"
+                    rel="stylesheet">
+
+                <div class="flex flex-col select-none">
+                    <!-- Main Brand Name -->
+                    <span class="text-[#FDFBF7] text-xl md:text-3xl font-bold uppercase tracking-[0.08em] leading-none"
+                        style="font-family: 'Cormorant Garamond', serif;">
+                        APEX
+                    </span>
+
+                    <!-- Sub Brand -->
+                    <span
+                        class="text-[#D4AF37] text-[10px] md:text-[11px] tracking-[0.1em] font-semibold uppercase -mt-[9px] "
+                        style="font-family: ui-sans-serif, system-ui, sans-serif;">
+                        PARTNER GROUP
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#property-listings"
+                    class="text-sm font-medium text-cream nav-link uppercase tracking-wide">Browse
+                    Homes</a>
+                <!-- <a href="#sell" class="text-sm font-medium text-cream nav-link uppercase tracking-wide">Sell Your
+                    House</a> -->
+                <a href="#approach" class="text-sm font-medium text-cream nav-link uppercase tracking-wide">Our
+                    Approach</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact"
+                    class="hidden md:flex items-center gap-2 border border-gold text-gold px-5 py-2.5 rounded hover:bg-gold hover:text-maroon transition-colors duration-300 text-sm font-medium">
+                    <i data-feather="message-circle" class="w-4 h-4"></i> Talk to us
+                </a>
+                <button id="menu-btn" class="text-cream p-2 focus:outline-none z-50 relative">
+                    <div class="w-6 h-0.5 bg-current mb-1.5 transition-transform duration-300" id="bar1"></div>
+                    <div class="w-6 h-0.5 bg-current mb-1.5 transition-opacity duration-300" id="bar2"></div>
+                    <div class="w-6 h-0.5 bg-current transition-transform duration-300" id="bar3"></div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-maroon z-30 opacity-0 invisible flex flex-col justify-center items-center">
+        <nav class="flex flex-col gap-8 text-center">
+            <a href="#property-listings"
+                class="text-3xl font-serif text-cream hover:text-gold transition-colors mobile-link">Browse Homes</a>
+            <a href="#sell" class="text-3xl font-serif text-cream hover:text-gold transition-colors mobile-link">Sell
+                Your House</a>
+            <a href="#approach" class="text-3xl font-serif text-cream hover:text-gold transition-colors mobile-link">Our
+                Approach</a>
+            <a href="#contact"
+                class="mt-8 inline-block bg-gold text-maroon px-8 py-4 rounded font-medium text-lg mobile-link">Contact
+                Us</a>
+        </nav>
+    </div>
+
+
+
+    <section class="relative min-h-screen flex items-center pt-10">
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero.png" alt="Luxury Home" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-cream pr-0 md:pr-12" id="hero-content">
+                <div class="flex items-center gap-3 mb-6 reveal-up">
+                    <!-- <span class="text-gold text-xl font-bold">🏆</span> -->
+                    <span class="text-sm tracking-widest uppercase font-semibold text-cream">
+                        Find Your Dream Home with Odisha’s Best Property Advisor
+                    </span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold leading-[1.1] mb-6 reveal-up">
+                    Your Property, <span class="italic text-gold">Our Priority.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-cream/80 font-light mb-10 max-w-lg reveal-up">
+                    Builders suggest what they have. We help you find what you truly want, handpicked properties that
+                    match your vision, location preference, and budget.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 reveal-up">
+                    <a href="#property-listings"
+                        class="btn-primary bg-[#FFF8EE] text-maroon px-8 py-4 text-center font-medium rounded shadow-lg flex-1 sm:flex-none">
+                        Browse Apex Homes
+                    </a>
+                    <a href="#approach"
+                        class="border border-cream text-maroon  bg-[#FFF8EE] hover:text-maroon px-8 py-4 text-center font-medium rounded transition-colors duration-300 flex-1 sm:flex-none">
+                        Our Approach
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="absolute bottom-0 left-0 w-full bg-maroonDark/80 backdrop-blur-lg border-t border-cream/10 z-10 hidden md:block">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-4 gap-8 py-6" id="trust-bar">
+
+                    <div class="flex items-center gap-4 text-cream trust-item">
+                        <div
+                            class="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-maroonLight/50 text-gold">
+                            <i data-feather="star"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wide">TOP 5% HOMES</h4>
+                            <p class="text-xs text-cream/60">Only in the finest societies</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-cream trust-item">
+                        <div
+                            class="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-maroonLight/50 text-gold">
+                            <i data-feather="tool"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wide">FULLY RENOVATED</h4>
+                            <p class="text-xs text-cream/60">Quality audited & upgraded</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-cream trust-item">
+                        <div
+                            class="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-maroonLight/50 text-gold">
+                            <i data-feather="shield"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wide">FAIR PRICES</h4>
+                            <p class="text-xs text-cream/60">Data backed valuations</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 text-cream trust-item">
+                        <div
+                            class="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-maroonLight/50 text-gold">
+                            <i data-feather="file-text"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wide">LEGALLY CLEARED</h4>
+                            <p class="text-xs text-cream/60">Just come to sign</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 bg-cream text-maroonDark font-sans relative" id="property-listings">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-12">
+                <h2
+                    class="text-sm md:text-base font-semibold tracking-[0.35em] text-[#2D0509] uppercase mb-3 font-sans">
+                    Exclusive Collection
+                </h2>
+
+                <!-- Laptop/Desktop only -->
+                <h1
+                    class="hidden md:block text-4xl md:text-6xl font-serif font-bold text-maroonDark mb-8 leading-tight tracking-tight">
+                    Premium Residences in the <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-maroonDark to-gold italic">
+                        Finest Societies
+                    </span>
+                </h1>
+
+                <!-- Mobile only -->
+                <h1
+                    class="block md:hidden text-4xl font-serif font-bold text-maroonDark mb-8 leading-tight tracking-tight">
+                    Premium Residences in the
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-maroonDark to-gold italic">
+                        Finest Societies
+                    </span>
+                </h1>
+
+
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto">
+                    <select id="locality-filter"
+                        class="w-full sm:w-1/2 p-3 bg-white border border-creamDark rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-gold text-maroonDark transition-colors">
+                        <option value="all">All Localities</option>
+                        <option value="ambapua">Ambapua</option>
+                        <option value="lanjipalli">Lanjipalli</option>
+                        <option value="jagannathpur junction">Jagannathpur Junction</option>
+                        <option value="jagannathpur">Jagannathpur</option>
+                        <option value="ichapuram">Ichapuram</option>
+                        <option value="ghosanuinagan">Ghosanuinagan</option>
+                        <option value="first gate">First Gate</option>
+                    </select>
+                    <select id="bhk-filter"
+                        class="w-full sm:w-1/2 p-3 bg-white border border-creamDark rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-gold text-maroonDark transition-colors">
+                        <option value="all">All BHK</option>
+                        <option value="2">2 BHK</option>
+                        <option value="3">3 BHK</option>
+                        <option value="3.5">3.5 BHK</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="property-grid">
+            </div>
+
+        </div>
+
+        <div id="brochureModal"
+            class="fixed inset-0 bg-maroonDark/80 backdrop-blur-sm hidden justify-center items-center z-50 p-4 transition-opacity opacity-0">
+            <div class="bg-cream rounded-3xl p-8 max-w-md w-full relative shadow-2xl transform scale-95 transition-transform duration-300"
+                id="modalContent">
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 text-maroon hover:text-maroonLight transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <h3 class="text-2xl font-bold text-maroonDark mb-2">Download Brochure</h3>
+                <p class="text-sm text-maroonLight mb-6">Enter your details to receive the comprehensive property
+                    brochure for <span id="modalPropertyTitle" class="font-bold text-gold"></span>.</p>
+
+                <form id="brochureForm" onsubmit="handleDownload(event)">
+                    <div class="space-y-4">
+                        <div>
+                            <input id="brochureName" type="text" required placeholder="Full Name"
+                                class="w-full p-4 bg-white border border-creamDark rounded-xl focus:outline-none focus:ring-2 focus:ring-gold text-maroonDark">
+                        </div>
+                        <div>
+                            <input id="brochurePhone" type="tel" required placeholder="Phone Number" pattern="[0-9]{10}"
+                                title="10 digit mobile number"
+                                class="w-full p-4 bg-white border border-creamDark rounded-xl focus:outline-none focus:ring-2 focus:ring-gold text-maroonDark">
+                        </div>
+                        <div>
+                            <input id="brochureEmail" type="email" required placeholder="Email Address"
+                                class="w-full p-4 bg-white border border-creamDark rounded-xl focus:outline-none focus:ring-2 focus:ring-gold text-maroonDark">
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-maroon hover:bg-maroonLight text-cream font-bold py-4 rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            Get Brochure Now
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <style>
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate-fadeIn {
+                animation: fadeIn 0.4s ease-out forwards;
+            }
+        </style>
+    </section>
+
+    <section id="approach" class="py-5 bg-[#FDFBF7] relative selection:bg-[#D4AF37] selection:text-[#4A0414]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <span class="text-[#2D0509] font-bold text-sm tracking-[0.2em] uppercase mb-4 block">The Apex
+                    Standard</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#4A0414] mb-4">
+                    Curated. Verified. <span class="italic text-[#D4AF37]">Perfected.</span>
+                </h2>
+                <p class="text-[#4A0414]/70 max-w-2xl mx-auto font-light text-lg">
+                    We filter out the noise so you only see the finest properties that meet our uncompromising
+                    standards.
+                </p>
+            </div>
+
+            <!-- Bento Box Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
+
+                <!-- Block 1: Main Feature (Spans 2 rows, 2 cols on tablet/desktop) -->
+                <div
+                    class="md:col-span-2 md:row-span-2 rounded-[2rem] overflow-hidden relative group min-h-[450px] shadow-lg border border-[#D4AF37]/20">
+                    <img src="images/appaet.jpeg" alt="Premium Architecture"
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-in-out">
+
+                    <!-- Rich Maroon Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#4A0414] via-[#4A0414]/50 to-transparent"></div>
+
+                    <div class="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end">
+                        <span
+                            class="inline-block px-4 py-1.5 rounded-full bg-[#D4AF37] text-[#4A0414] font-bold text-xs tracking-widest uppercase mb-6 self-start shadow-md">
+                            Top 5% Homes
+                        </span>
+                        <h3 class="text-3xl md:text-5xl font-bold text-[#FDFBF7] mb-4 leading-tight drop-shadow-md">
+                            Handpicked homes that <br /><span class="text-[#D4AF37]">meet our extensive filters</span>
+                        </h3>
+                        <p class="text-[#FDFBF7]/80 text-sm md:text-base leading-relaxed max-w-lg font-light">
+                            Considering parameters like Society score, Amenities, Locality, Safety, Quality of
+                            Construction, View, Sunlight, Noise levels, Air Quality, Vastu, and more.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 2: 300+ Checks -->
+                <div
+                    class="rounded-[2rem] p-8 bg-white border border-[#D4AF37]/30 shadow-[0_8px_30px_rgba(74,4,20,0.06)] hover:-translate-y-1 transition-transform duration-300">
+                    <h3 class="text-[#D4AF37] font-bold text-xs tracking-widest uppercase mb-2">All Checks Done</h3>
+                    <h4 class="text-2xl font-bold text-[#4A0414] mb-6 leading-snug">Renovated to our high standards</h4>
+
+                    <ul class="space-y-4 text-sm text-[#4A0414]/90 font-medium">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            No Seepage detected
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Electrical & Fittings checked
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Plumbing verified
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Block 3: Pricing (Dark Maroon Card) -->
+                <div
+                    class="rounded-[2rem] p-8 bg-[#4A0414] relative overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col justify-between group shadow-xl">
+                    <!-- Decorative Glow -->
+                    <div class="absolute -right-12 -top-12 w-40 h-40 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+
+                    <div class="z-10 mb-8">
+                        <h3 class="text-[#D4AF37] font-bold text-xs tracking-widest uppercase mb-2">Never Overpay</h3>
+                        <h4 class="text-2xl font-bold text-[#FDFBF7] leading-snug">Data-backed Pricing with APEX Group
+                        </h4>
+                    </div>
+
+                    <!-- Abstract Mini Graph UI -->
+                    <div class="flex items-end gap-2 h-24 z-10 border-b border-[#FDFBF7]/20 pb-1 mt-auto">
+                        <div
+                            class="w-full bg-[#FDFBF7]/10 rounded-t-sm h-[30%] group-hover:h-[40%] transition-all duration-500">
+                        </div>
+                        <div
+                            class="w-full bg-[#FDFBF7]/20 rounded-t-sm h-[50%] group-hover:h-[60%] transition-all duration-500 delay-75">
+                        </div>
+
+                        <div
+                            class="w-full bg-[#D4AF37] rounded-t-sm h-[80%] group-hover:h-[95%] transition-all duration-500 delay-150 relative shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                            <div
+                                class="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#FDFBF7] text-[#4A0414] text-[10px] font-bold px-2 py-1 rounded border border-[#D4AF37]/30 shadow-md">
+                                Fair
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-full bg-[#FDFBF7]/15 rounded-t-sm h-[40%] group-hover:h-[30%] transition-all duration-500 delay-200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 4: Legal & Documentation -->
+                <div
+                    class="md:col-span-2 rounded-[2rem] p-8 lg:p-10 bg-white border border-[#D4AF37]/30 shadow-[0_8px_30px_rgba(74,4,20,0.06)] hover:-translate-y-1 transition-transform duration-300 flex flex-col sm:flex-row items-center gap-8 group">
+                    <div class="flex-1">
+                        <h3 class="text-[#D4AF37] font-bold text-xs tracking-widest uppercase mb-2">Buy With Confidence
+                        </h3>
+                        <h4 class="text-3xl font-bold text-[#4A0414] mb-3">100% Legally cleared & Assured</h4>
+                        <p class="text-[#4A0414]/70 text-sm md:text-base font-light">Every property goes through strict
+                            legal scrutiny ensuring you only sign the dotted lines without worry.</p>
+                    </div>
+
+
+                </div>
+
+                <!-- Block 5: Zero Commission Highlight -->
+                <div
+                    class="md:col-span-1 rounded-[2rem] p-8 bg-[#510D15] flex flex-col items-center justify-center text-center hover:scale-[1.03] transition-transform duration-500 shadow-[0_15px_30px_rgba(74,4,20,0.4)]">
+                    <!-- Icon updated to White/Cream -->
+                    <svg class="w-12 h-12 text-[#FDFBF7] mb-5 opacity-90" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"></path>
+                    </svg>
+
+                    <!-- Text updated to White/Cream -->
+                    <h4 class="text-4xl font-black text-[#FDFBF7] tracking-wide mb-1">ZERO</h4>
+                    <p class="text-[#FDFBF7] font-bold text-sm tracking-widest uppercase opacity-90">Commission</p>
+
+                    <!-- Badge updated to Gold with Maroon text for contrast -->
+                    <div
+                        class="mt-4 bg-[#D4AF37] text-[#4A0414] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-inner">
+                        No Hidden Costs
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom CSS for the giant text clipping with Maroon gradient */
+        .giant-text-bg {
+            background: linear-gradient(to bottom, rgba(110, 16, 26, 0.4) 0%, rgba(45, 5, 9, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4AF37;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .footer-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+
+    <footer class="relative bg-maroonDark pt-20 md:pt-24 pb-0 overflow-hidden font-sans border-t border-maroonLight/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center mb-16 md:mb-20 footer-anim opacity-0 translate-y-10 transition-all duration-700 bg-maroonLight/10 p-8 md:p-10 rounded-[2rem] border border-maroonLight/20">
+                <div class="mb-8 md:mb-0 text-center md:text-left w-full md:w-auto">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-cream mb-4 tracking-tight">
+                        Ready to elevate your standards?
+                    </h2>
+                    <p class="text-cream/70 text-base md:text-lg">Connect with us to discover premium properties.</p>
+                </div>
+                <button
+                    class="w-full md:w-auto bg-gold hover:bg-goldHover text-maroonDark font-bold text-lg py-4 px-10 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:-translate-y-1 whitespace-nowrap">
+                    Get In Touch
+                </button>
+            </div>
+
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 mb-10 border-b border-maroonLight/30 pb-16">
+
+                <div
+                    class="footer-anim opacity-0 translate-y-10 transition-all duration-700 delay-100 sm:col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="images/logo.png" class="w-10 h-10 obect-cover scale-[3] ml-5" alt="">
+                    </div>
+                    <p class="text-cream/60 text-sm leading-relaxed max-w-xs">
+                        Handpicked homes that meet our extensive filters, completely legally cleared and assured.
+                    </p>
+                </div>
+
+                <div class="footer-anim opacity-0 translate-y-10 transition-all duration-700 delay-200">
+                    <h4 class="text-cream font-bold mb-6 tracking-wider uppercase text-xs md:text-sm">Quick Links</h4>
+                    <ul class="space-y-4 text-cream/70 text-sm">
+                        <li><a href="#property-listings" class="footer-link hover:text-gold transition-colors">Our Properties</a></li>
+                        <li><a href="#approach" class="footer-link hover:text-gold transition-colors">How TruIQ Works</a></li>
+                        <li><a href="#approach" class="footer-link hover:text-gold transition-colors">Quality Standards</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-anim opacity-0 translate-y-10 transition-all duration-700 delay-300">
+                    <h4 class="text-cream font-bold mb-6 tracking-wider uppercase text-xs md:text-sm">Company</h4>
+                    <ul class="space-y-4 text-cream/70 text-sm">
+                        <li><a href="#approach" class="footer-link hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#approach" class="footer-link hover:text-gold transition-colors">Careers</a></li>
+                        <li><a href="privacy.html" class="footer-link hover:text-gold transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-anim opacity-0 translate-y-10 transition-all duration-700 delay-400">
+                    <h4 class="text-cream font-bold mb-6 tracking-wider uppercase text-xs md:text-sm">Connect</h4>
+                    <ul class="space-y-4 text-cream/70 text-sm">
+                        <li class="flex items-center gap-3">
+                            <i data-feather="mail" class="w-4 h-4 text-gold"></i>
+                            <a href="mailto:sales@apexpartnergroup.com"
+                                class="hover:text-gold transition-colors">sales@apexpartnergroup.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-feather="phone-call" class="w-4 h-4 text-gold"></i>
+                            <a href="tel:+919876543210" class="hover:text-gold transition-colors">+91 98765 43210</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-feather="map-pin" class="w-4 h-4 text-gold"></i>
+                            <span>Berhampur, Odisha</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col-reverse md:flex-row justify-between items-center text-xs text-cream/40 mb-12 md:mb-8 gap-6 md:gap-0">
+                <p>&copy; 2026 Apex Partner Group. All rights reserved.</p>
+
+                <div class="flex gap-4 w-full md:w-auto justify-center">
+                    <a href="https://www.facebook.com/profile.php?id=61590285020114"
+                        class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream hover:bg-gold hover:text-maroonDark hover:border-gold transition-all duration-300 hover:-translate-y-1"
+                        aria-label="Facebook">
+                        <i data-feather="facebook" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.instagram.com/apexpartnergroup_/"
+                        class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream hover:bg-gold hover:text-maroonDark hover:border-gold transition-all duration-300 hover:-translate-y-1"
+                        aria-label="Instagram">
+                        <i data-feather="instagram" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ApexPartnerGroup"
+                        class="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream hover:bg-gold hover:text-maroonDark hover:border-gold transition-all duration-300 hover:-translate-y-1"
+                        aria-label="Youtube">
+                        <i data-feather="youtube" class="w-4 h-4"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="relative w-full flex justify-center items-end mt-[-10%] md:mt-[-5%] overflow-hidden pointer-events-none select-none z-0">
+            <img src="images/logo.png" class="w-20 h-20 object-cover " alt="">
+        </div>
+    </footer>
+
+    <script>
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
