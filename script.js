@@ -151,6 +151,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://i.pinimg.com/1200x/fa/f5/29/faf5290a1f2065ce161fbc6fb850a245.jpg",
+        "https://i.pinimg.com/webp/736x/80/4f/b5/804fb5e746919397845ed8d9171cfd86.webp"
       ],
     },
     {
@@ -167,6 +168,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://i.pinimg.com/1200x/a9/dc/c7/a9dcc71224b114cbb965fd649b290750.jpg",
+        "https://i.pinimg.com/1200x/f9/65/a7/f965a72f9f26e4aa49897ac837ebb052.jpg",
       ],
     },
     {
@@ -183,6 +185,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://i.pinimg.com/1200x/97/8c/f4/978cf4353b59933b2e05b9e7045bb903.jpg",
+        "https://i.pinimg.com/1200x/fb/2e/a7/fb2ea718ddb04123602d012c6ac9068f.jpg",
       ],
     },
     {
@@ -199,6 +202,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://i.pinimg.com/1200x/de/95/40/de95405566accc421731b9be0ca4c3b6.jpg",
+        "https://i.pinimg.com/736x/ce/41/a4/ce41a46eda0ca41cdd98e48b13337ac8.jpg",
       ],
     },
     {
@@ -215,6 +219,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://plus.unsplash.com/premium_photo-1674676471380-1258cb31b3ac?q=80&w=1109&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://i.pinimg.com/webp/1200x/c2/9d/ed/c29ded0c53d203db547c4ebee6495c5a.webp",
       ],
     },
     {
@@ -231,6 +236,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
+        "https://i.pinimg.com/736x/40/40/c2/4040c29ac348fda257596a01333c15d3.jpg"
       ],
     },
     {
@@ -247,6 +253,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://i.pinimg.com/736x/2f/93/40/2f93407f0bcc607bc945cc77742c0cbb.jpg"
       ],
     },
     {
@@ -263,6 +270,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://i.pinimg.com/webp/1200x/99/48/fc/9948fc9f3e2b42d5b1af4024bfdf96e0.webp"
       ],
     },
     {
@@ -279,6 +287,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://images.unsplash.com/photo-1680210851377-b7168175ae9b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://i.pinimg.com/webp/736x/e4/1a/4d/e41a4def527a75bb781fffd1609aa2b3.webp"
       ],
     },
     {
@@ -295,6 +304,7 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://i.pinimg.com/webp/1200x/99/d3/a5/99d3a5daee69feeb769c8c1ed73b668b.webp",
+        "https://i.pinimg.com/webp/736x/94/7b/ee/947beecc77bc57d0859646af4db2d066.webp"
       ],
     },
     {
@@ -311,6 +321,24 @@ function dynamicCards() {
       phoneNumber: "+919827965685",
       images: [
         "https://i.pinimg.com/webp/1200x/ad/28/19/ad2819579cc5928881e1dfef52a46123.webp",
+        "https://i.pinimg.com/webp/1200x/60/fc/48/60fc488ce1f6ffa8028a02d4b9bd135d.webp",
+      ],
+    },
+    {
+      id: 12,
+      bhk: "2,3",
+      bhkLabel: "2BHK, 3BHK",
+      society: "LB Majestic",
+      area: "-",
+      localityValue: "Khodasingi",
+      localityLabel: "Khodasingi",
+      tag: "",
+      document: "",
+      whatsappNumber: "919827965685",
+      phoneNumber: "+919827965685",
+      images: [
+        "https://i.pinimg.com/webp/736x/8d/1b/3c/8d1b3cc14a26509754753425fa35c10c.webp",
+        "https://i.pinimg.com/1200x/41/de/43/41de43f6d14e891cebc8d54e26038ba0.jpg",
       ],
     },
   ];
@@ -318,6 +346,14 @@ function dynamicCards() {
   const propertyGrid = document.getElementById("property-grid");
   const localityFilter = document.getElementById("locality-filter");
   const bhkFilter = document.getElementById("bhk-filter");
+  const randomizedPropertyData = [...propertyData];
+  for (let index = randomizedPropertyData.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [randomizedPropertyData[index], randomizedPropertyData[randomIndex]] = [
+      randomizedPropertyData[randomIndex],
+      randomizedPropertyData[index],
+    ];
+  }
 
   // 2. Render Function
   function renderProperties(data) {
@@ -456,7 +492,7 @@ function dynamicCards() {
     const selectedLocality = localityFilter.value;
     const selectedBHK = bhkFilter.value;
 
-    const filteredData = propertyData.filter((property) => {
+    const filteredData = randomizedPropertyData.filter((property) => {
       const propLoc = (property.localityValue || "").toString().toLowerCase();
       const selLoc = (selectedLocality || "").toString().toLowerCase();
       const matchLocality = selectedLocality === "all" || propLoc === selLoc;
@@ -674,7 +710,7 @@ function dynamicCards() {
   };
 
   // Initial Render on page load
-  renderProperties(propertyData);
+  renderProperties(randomizedPropertyData);
 }
 
 function footerAnimation() {
